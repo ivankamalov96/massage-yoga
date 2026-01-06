@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иван | Массажист и преподаватель йоги</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #2a5c3d;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #3a6b4c;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Main Content */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2a5c3d;
+            font-size: 2.5rem;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: #d4af37;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .photo-gallery {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .photo-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #2a5c3d;
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2a5c3d;
+        }
+        
+        /* Contact */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2a5c3d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2a5c3d;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #3a6b4c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2a5c3d;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 0;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+        
+        /* Photo placeholders */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+        }
+        
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+        
+        .photo-item:nth-child(1) .photo-placeholder {
+            background: linear-gradient(135deg, #e6f7ef 0%, #cce8dc 100%);
+        }
+        
+        .photo-item:nth-child(2) .photo-placeholder {
+            background: linear-gradient(135deg, #f9f3e9 0%, #f0e6d3 100%);
+        }
+        
+        .photo-item:nth-child(3) .photo-placeholder {
+            background: linear-gradient(135deg, #e9f4f9 0%, #d3e6f0 100%);
+        }
+        
+        .photo-item:nth-child(4) .photo-placeholder {
+            background: linear-gradient(135deg, #f9e9e9 0%, #f0d3d3 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+            </div>
+            <h1>Иван</h1>
+            <div class="subtitle">Массажист и преподаватель йоги</div>
+            <p>Гармония тела и разума через массаж и йогу</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Приветствую! Меня зовут Иван. Я профессиональный массажист и преподаватель йоги с более чем 10-летним опытом работы.</p>
+                    <p>Мой подход объединяет древние практики йоги с современными техниками массажа для достижения полной гармонии тела и разума. Я верю, что каждый человек заслуживает чувствовать себя здоровым, сбалансированным и наполненным энергией.</p>
+                    <p>Я постоянно совершенствую свои навыки, посещая семинары и обучающие программы как в России, так и за рубежом. Моя миссия — помочь людям обрести физическое и ментальное благополучие через осознанное движение и тактильную терапию.</p>
+                    <p>Работаю как с начинающими, так и с опытными практиками. Для каждого клиента я разрабатываю индивидуальный подход, учитывая особенности тела и поставленные цели.</p>
+                </div>
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-hands"></i>
+                            </div>
+                            <div>Массажная практика</div>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-user-ninja"></i>
+                            </div>
+                            <div>Йога-сессия</div>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>Медитация на природе</div>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>Преподавание</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="section" style="background-color: #f0f7f3;">
+        <div class="container">
+            <h2 class="section-title">Мои услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="service-title">Лечебный массаж</h3>
+                    <p>Профессиональный лечебный массаж для снятия мышечных зажимов, устранения болей в спине и шее, улучшения кровообращения и общего самочувствия.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Спина и шея</li>
+                        <li>Общий массаж тела</li>
+                        <li>Спортивный массаж</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-injured"></i>
+                    </div>
+                    <h3 class="service-title">Реабилитационный массаж</h3>
+                    <p>Специализированный массаж для восстановления после травм и операций. Индивидуальный подход к каждому клиенту с учетом медицинских показаний.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Посттравматическая реабилитация</li>
+                        <li>Восстановление после операций</li>
+                        <li>Работа с рубцовой тканью</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="service-title">Индивидуальные занятия йогой</h3>
+                    <p>Персональные занятия йогой с учетом вашего уровня подготовки, целей и физических особенностей. Для начинающих и продвинутых практиков.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Хатха йога</li>
+                        <li>Йога для спины</li>
+                        <li>Йогатерапия</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title">Групповые занятия йогой</h3>
+                    <p>Регулярные групповые занятия в студии и на природе. Разные направления и уровни сложности. Также организую корпоративные занятия йогой.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Утренние и вечерние группы</li>
+                        <li>Йога на природе (в теплое время года)</li>
+                        <li>Корпоративная йога</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь со мной</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+7 (XXX) XXX-XX-XX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>ivan.yoga.massage@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>г. Москва, ул. Зеленая, д. 15<br>Студия "Гармония"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Часы работы</h3>
+                            <p>Пн-Пт: 9:00 - 20:00<br>Сб: 10:00 - 18:00<br>Вс: по предварительной записи</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; color: #2a5c3d;">Записаться на сеанс</h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Услуга</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Выберите услугу</option>
+                                <option value="massage">Лечебный массаж</option>
+                                <option value="rehab">Реабилитационный массаж</option>
+                                <option value="yoga-individual">Индивидуальная йога</option>
+                                <option value="yoga-group">Групповая йога</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Опишите ваши пожелания или вопросы"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-spa"></i>
+            </div>
+            <p>Иван | Массажист и преподаватель йоги</p>
+            <p>Гармония тела и разума</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-vk"></i>
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">© 2023 Иван. Все права защищены.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, here would be the code to send data to the server
+            alert('Спасибо за вашу заявку! Я свяжусь с вами в ближайшее время.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Dynamic photo placeholders
+        document.querySelectorAll('.photo-placeholder').forEach((placeholder, index) => {
+            const icons = ['fa-hands', 'fa-user-ninja', 'fa-leaf', 'fa-chalkboard-teacher'];
+            const texts = ['Массажная практика', 'Йога-сессия', 'Медитация на природе', 'Преподавание'];
+            
+            // This is where you would replace the placeholder with your actual image
+            // For now, we'll keep the placeholders as they are
+            // To add your own images:
+            // 1. Save your images in the same folder as this HTML file
+            // 2. Replace the placeholder div with: <img src="your-image-name.jpg" alt="Описание" style="width:100%; height:100%; object-fit:cover;">
+        });
+    </script>
+</body>
+</html>
